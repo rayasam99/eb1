@@ -25,9 +25,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
     });
   }
 
+  const fromEmail = import.meta.env.From ?? 'noreply@eb1agreencardcoach.com';
+  const toEmail   = import.meta.env.To   ?? 'contact@eb1agreencardcoach.com';
+
   const { error } = await resend.emails.send({
-    from: 'EB-1A Green Card Coach <noreply@eb1agreencardcoach.com>',
-    to: 'contact@eb1agreencardcoach.com',
+    from: `EB-1A Green Card Coach <${fromEmail}>`,
+    to: toEmail,
     replyTo: email,
     subject: `New contact form submission from ${firstName} ${lastName}`,
     html: `
