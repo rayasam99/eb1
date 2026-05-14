@@ -13,11 +13,11 @@ import PageHero from '../components/PageHero.astro';
 
       <!-- Left: Form -->
       <div class="contact-form-wrap">
-        <div id="form-success" class="form-alert form-alert--success" hidden>
+        <div id="form-success" class="form-alert form-alert--success is-hidden">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
           Message sent! We'll get back to you shortly.
         </div>
-        <div id="form-error" class="form-alert form-alert--error" hidden>
+        <div id="form-error" class="form-alert form-alert--error is-hidden">
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
           Something went wrong. Please try again or email us directly.
         </div>
@@ -47,7 +47,7 @@ import PageHero from '../components/PageHero.astro';
           </div>
           <button type="submit" id="submit-btn" class="btn btn-primary form-submit">
             <span id="submit-label">Submit</span>
-            <span id="submit-spinner" class="spinner" hidden></span>
+            <span id="submit-spinner" class="spinner is-hidden"></span>
           </button>
         </form>
       </div>
@@ -188,6 +188,9 @@ import PageHero from '../components/PageHero.astro';
 
   .contact-detail-item a:hover { color: var(--color-primary); }
 
+  /* ── Hidden utility ── */
+  .is-hidden { display: none !important; }
+
   /* ── Alerts ── */
   .form-alert {
     display: flex;
@@ -229,14 +232,17 @@ import PageHero from '../components/PageHero.astro';
   const successBox = document.getElementById('form-success') as HTMLDivElement;
   const errorBox = document.getElementById('form-error') as HTMLDivElement;
 
+  const hide = (el: HTMLElement) => el.classList.add('is-hidden');
+  const show = (el: HTMLElement) => el.classList.remove('is-hidden');
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    successBox.hidden = true;
-    errorBox.hidden = true;
+    hide(successBox);
+    hide(errorBox);
 
     submitBtn.disabled = true;
-    submitLabel.hidden = true;
-    submitSpinner.hidden = false;
+    hide(submitLabel);
+    show(submitSpinner);
 
     const data = {
       firstName: (form.querySelector('#first-name') as HTMLInputElement).value.trim(),
@@ -254,17 +260,17 @@ import PageHero from '../components/PageHero.astro';
       });
 
       if (res.ok) {
-        successBox.hidden = false;
+        show(successBox);
         form.reset();
       } else {
-        errorBox.hidden = false;
+        show(errorBox);
       }
     } catch {
-      errorBox.hidden = false;
+      show(errorBox);
     } finally {
       submitBtn.disabled = false;
-      submitLabel.hidden = false;
-      submitSpinner.hidden = true;
+      show(submitLabel);
+      hide(submitSpinner);
     }
   });
 </script>
