@@ -1,32 +1,24 @@
-import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
 
-export const prerender = false;
+export async function onRequestPost(context) {
+  const { request, env } = context;
 
-export const POST: APIRoute = async ({ request, locals }) => {
-  const resend = new Resend(import.meta.env.RESEND_API_KEY);
-
-  let body: Record<string, string>;
+  let body;
   try {
     body = await request.json();
   } catch {
-    return new Response(JSON.stringify({ error: 'Invalid request body' }), {
-      status: 400,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return json({ error: 'Invalid request body' }, 400);
   }
 
   const { firstName, lastName, email, phone, message } = body;
 
   if (!firstName || !lastName || !email || !message) {
-    return new Response(JSON.stringify({ error: 'Missing required fields' }), {
-      status: 422,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return json({ error: 'Missing required fields' }, 422);
   }
 
-  const fromEmail = import.meta.env.From ?? 'noreply@eb1agreencardcoach.com';
-  const toEmail   = import.meta.env.To   ?? 'contact@eb1agreencardcoach.com';
+  const resend = new Resend(env.RESEND_API_KEY);
+  const fromEmail = env.From ?? 'noreply@eb1agreencardcoach.com';
+  const toEmail   = env.To   ?? 'contact@eb1agreencardcoach.com';
 
   const { error } = await resend.emails.send({
     from: `EB-1A Green Card Coach <${fromEmail}>`,
@@ -45,14 +37,15 @@ export const POST: APIRoute = async ({ request, locals }) => {
   });
 
   if (error) {
-    return new Response(JSON.stringify({ error: error.message }), {
-      status: 500,
-      headers: { 'Content-Type': 'application/json' },
-    });
+    return json({ error: error.message }, 500);
   }
 
-  return new Response(JSON.stringify({ success: true }), {
-    status: 200,
+  return json({ success: true }, 200);
+}
+
+function json(data, status) {
+  return new Response(JSON.stringify(data), {
+    status,
     headers: { 'Content-Type': 'application/json' },
   });
-};
+}
