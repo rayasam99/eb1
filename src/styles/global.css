@@ -1,0 +1,480 @@
+/* ============================================================
+   EB-1A Green Card Coach — Global Design System
+   Fonts: Libre Baskerville (headings) · Inter (body)
+   DO NOT apply typography classes directly to h1/h2/h3 elements.
+   Use utility classes: .heading-1 .heading-2 .heading-3 .heading-4
+   ============================================================ */
+
+/* ── Google Fonts ───────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ── CSS Custom Properties ──────────────────────────────────── */
+:root {
+
+  /* Colors — Brand */
+  --color-primary:        #CC1427;   /* Main crimson red — buttons, accents */
+  --color-primary-dark:   #A80F1E;   /* Hover / active state for primary */
+  --color-primary-light:  #E8192F;   /* Lighter tint for subtle use */
+
+  /* Colors — Neutral Dark */
+  --color-navy:           #0D1B3E;   /* Footer, dark section backgrounds */
+  --color-navy-alt:       #152244;   /* Alternative dark shade */
+
+  /* Colors — Neutrals Light */
+  --color-white:          #FFFFFF;
+  --color-off-white:      #F7F8FA;   /* Very light section backgrounds */
+  --color-light-gray:     #F2F3F5;   /* Cards / services section */
+  --color-border:         #E2E4E8;   /* Subtle borders, dividers */
+  --color-border-dark:    #C8CAD0;   /* Stronger borders */
+
+  /* Colors — Text */
+  --color-text-heading:   #1A1A2E;   /* Main headings on light backgrounds */
+  --color-text-body:      #4A4A5A;   /* Body / paragraph text */
+  --color-text-muted:     #888899;   /* Captions, meta, placeholder */
+  --color-text-light:     #FFFFFF;   /* Text on dark/colored backgrounds */
+  --color-text-nav:       #1A1A2E;   /* Navigation links */
+
+  /* ── Typography ─────────────────────────────────────────── */
+  --font-heading:   'Libre Baskerville', Georgia, 'Times New Roman', serif;
+  --font-body:      'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Font Sizes */
+  --fs-h1:     56px;   /* Hero / page title */
+  --fs-h2:     42px;   /* Section headings */
+  --fs-h3:     24px;   /* Card / sub-section titles */
+  --fs-h4:     20px;   /* Sub-headings */
+  --fs-body:   16px;   /* Default body */
+  --fs-sm:     14px;   /* Small / caption */
+  --fs-xs:     12px;   /* Fine print */
+  --fs-nav:    15px;   /* Navigation links */
+  --fs-btn:    15px;   /* Button label */
+
+  /* Font Weights */
+  --fw-light:      300;
+  --fw-regular:    400;
+  --fw-medium:     500;
+  --fw-semibold:   600;
+  --fw-bold:       700;
+
+  /* Line Heights */
+  --lh-heading:   1.2;
+  --lh-subhead:   1.35;
+  --lh-body:      1.75;
+  --lh-tight:     1.1;
+
+  /* Letter Spacing */
+  --ls-heading:   -0.02em;
+  --ls-wide:       0.08em;
+  --ls-nav:        0.01em;
+
+  /* ── Spacing Scale ──────────────────────────────────────── */
+  --sp-1:    4px;
+  --sp-2:    8px;
+  --sp-3:   12px;
+  --sp-4:   16px;
+  --sp-5:   20px;
+  --sp-6:   24px;
+  --sp-8:   32px;
+  --sp-10:  40px;
+  --sp-12:  48px;
+  --sp-16:  64px;
+  --sp-20:  80px;
+  --sp-24:  96px;
+  --sp-32: 128px;
+
+  /* Section vertical padding */
+  --section-py:       80px;
+  --section-py-sm:    60px;
+
+  /* ── Layout ─────────────────────────────────────────────── */
+  --container-max:     1200px;
+  --container-px:      24px;
+  --header-height:     80px;
+
+  /* ── Border Radius ──────────────────────────────────────── */
+  --radius-xs:    3px;
+  --radius-sm:    5px;
+  --radius-md:    10px;
+  --radius-lg:    16px;
+  --radius-xl:    24px;
+  --radius-full:  9999px;
+
+  /* ── Shadows ────────────────────────────────────────────── */
+  --shadow-xs:  0 1px 4px  rgba(0, 0, 0, 0.06);
+  --shadow-sm:  0 2px 10px rgba(0, 0, 0, 0.08);
+  --shadow-md:  0 4px 24px rgba(0, 0, 0, 0.10);
+  --shadow-lg:  0 8px 40px rgba(0, 0, 0, 0.14);
+  --shadow-xl:  0 16px 64px rgba(0, 0, 0, 0.18);
+
+  /* ── Transitions ────────────────────────────────────────── */
+  --ease:          cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-xs: 0.15s var(--ease);
+  --transition-sm: 0.2s  var(--ease);
+  --transition-md: 0.3s  var(--ease);
+  --transition-lg: 0.5s  var(--ease);
+
+  /* ── Z-Index ────────────────────────────────────────────── */
+  --z-base:     0;
+  --z-raised:   10;
+  --z-dropdown: 100;
+  --z-header:   200;
+  --z-modal:    300;
+  --z-toast:    400;
+}
+
+/* ============================================================
+   BASE RESET
+   ============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  color: var(--color-text-body);
+  background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* ============================================================
+   TYPOGRAPHY UTILITY CLASSES
+   Use these on your elements — do NOT style h1/h2/h3 directly.
+   ============================================================ */
+
+.heading-1 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+  color: var(--color-text-heading);
+}
+
+.heading-2 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--ls-heading);
+  color: var(--color-text-heading);
+}
+
+.heading-3 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-subhead);
+  color: var(--color-text-heading);
+}
+
+.heading-4 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-subhead);
+  color: var(--color-text-heading);
+}
+
+.text-body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  color: var(--color-text-body);
+}
+
+.text-sm {
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  color: var(--color-text-muted);
+}
+
+.text-xs {
+  font-family: var(--font-body);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-regular);
+  color: var(--color-text-muted);
+}
+
+/* Color overrides for text on dark backgrounds */
+.text-light  { color: var(--color-text-light)  !important; }
+.text-muted  { color: var(--color-text-muted)  !important; }
+.text-primary { color: var(--color-primary)     !important; }
+
+/* ============================================================
+   BUTTON STYLES
+   ============================================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  padding: 14px 32px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: var(--fs-btn);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-nav);
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition:
+    background-color var(--transition-sm),
+    border-color var(--transition-sm),
+    color var(--transition-sm),
+    box-shadow var(--transition-sm),
+    transform var(--transition-sm);
+  white-space: nowrap;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Primary — Red fill */
+.btn-primary {
+  background-color: var(--color-primary);
+  border-color:     var(--color-primary);
+  color:            var(--color-white);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  border-color:     var(--color-primary-dark);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Outline White — for dark section backgrounds */
+.btn-outline-white {
+  background-color: transparent;
+  border-color:     var(--color-white);
+  color:            var(--color-white);
+}
+
+.btn-outline-white:hover {
+  background-color: var(--color-white);
+  color:            var(--color-primary);
+}
+
+/* Outline Red — for light backgrounds */
+.btn-outline-red {
+  background-color: transparent;
+  border-color:     var(--color-primary);
+  color:            var(--color-primary);
+}
+
+.btn-outline-red:hover {
+  background-color: var(--color-primary);
+  color:            var(--color-white);
+}
+
+/* Small button variant */
+.btn-sm {
+  padding: 10px 22px;
+  font-size: var(--fs-sm);
+}
+
+/* Large button variant */
+.btn-lg {
+  padding: 16px 40px;
+  font-size: var(--fs-body);
+}
+
+/* ============================================================
+   LAYOUT UTILITIES
+   ============================================================ */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-px);
+}
+
+/* Section wrappers */
+.section {
+  padding-block: var(--section-py);
+}
+
+.section-sm {
+  padding-block: var(--section-py-sm);
+}
+
+/* Background variants */
+.bg-white      { background-color: var(--color-white); }
+.bg-light      { background-color: var(--color-light-gray); }
+.bg-off-white  { background-color: var(--color-off-white); }
+.bg-navy       { background-color: var(--color-navy); }
+.bg-primary    { background-color: var(--color-primary); }
+
+/* Section label / eyebrow text above a heading */
+.section-label {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--sp-3);
+}
+
+/* Centered text block (used in many sections) */
+.text-center { text-align: center; }
+.text-left   { text-align: left; }
+.text-right  { text-align: right; }
+
+/* ============================================================
+   CARD COMPONENT
+   ============================================================ */
+
+.card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: box-shadow var(--transition-md), transform var(--transition-md);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+}
+
+.card-body {
+  padding: var(--sp-8) var(--sp-6);
+}
+
+/* ============================================================
+   GRID UTILITIES
+   ============================================================ */
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--sp-8);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-8);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--sp-6);
+}
+
+/* ============================================================
+   DIVIDER
+   ============================================================ */
+
+.divider {
+  width: 60px;
+  height: 3px;
+  background-color: var(--color-primary);
+  border: none;
+  margin-block: var(--sp-6);
+}
+
+.divider-center {
+  margin-inline: auto;
+}
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+@media (max-width: 1024px) {
+  :root {
+    --fs-h1:  44px;
+    --fs-h2:  34px;
+    --fs-h3:  22px;
+    --section-py: 70px;
+  }
+
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --fs-h1:  34px;
+    --fs-h2:  28px;
+    --fs-h3:  20px;
+    --fs-h4:  18px;
+    --section-py:    56px;
+    --section-py-sm: 48px;
+    --container-px:  16px;
+  }
+
+  .grid-2,
+  .grid-3,
+  .grid-4 { grid-template-columns: 1fr; }
+
+  .btn {
+    padding: 13px 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --fs-h1:  28px;
+    --fs-h2:  24px;
+    --section-py: 48px;
+  }
+}

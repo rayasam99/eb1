@@ -1,0 +1,135 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHero from '../components/PageHero.astro';
+---
+
+<Layout title="Blog | EB-1A Green Card Coach" description="Read expert articles on EB-1A petitions, immigration tips, and success strategies.">
+
+  <PageHero eyebrow="Blog" heading="For Inspirations" />
+
+  <!-- ── Business Resources ── -->
+  <section class="section bg-white">
+    <div class="container blog-inner">
+      <div class="section-header-centered">
+        <h2 class="heading-2">Business Resources</h2>
+        <hr class="divider divider-center" />
+        <p class="text-body blog-intro">
+          Explore the EB1A Green Card Coach blog posts. From eligibility requirements to application tips,
+          our articles provide valuable information for individuals seeking to obtain this prestigious visa
+          based on extraordinary abilities. Dive into our content and unlock the pathway to success in
+          your EB1A immigration journey.
+        </p>
+      </div>
+
+      <div class="blog-grid">
+
+        <article class="blog-card">
+          <a href="/blog/ebia-petition-tips" class="blog-card-image-link">
+            <div class="blog-card-image-wrap">
+              <img src="/images/EB-1A-Blog-1.jpg" alt="How to Build a Strong EBIA Petition" class="blog-card-img" width="560" height="300" />
+            </div>
+          </a>
+          <div class="blog-card-body">
+            <h3 class="heading-3 blog-card-title">
+              <a href="/blog/ebia-petition-tips">How to Build a Strong EB1A Petition: Tips and Strategies</a>
+            </h3>
+            <a href="/blog/ebia-petition-tips" class="blog-readmore">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              Readmore
+            </a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <a href="/blog/ebia-visa-guide" class="blog-card-image-link">
+            <div class="blog-card-image-wrap">
+              <img src="/images/EB-1A-Blog-2.jpg" alt="EBIA Visa Guide Criteria" class="blog-card-img" width="560" height="300" />
+            </div>
+          </a>
+          <div class="blog-card-body">
+            <h3 class="heading-3 blog-card-title">
+              <a href="/blog/ebia-visa-guide">EB1A Visa Guide Criteria: USCIS Classification Guidance for EB1A</a>
+            </h3>
+            <a href="/blog/ebia-visa-guide" class="blog-readmore">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              Readmore
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .blog-inner { text-align: center; }
+
+  .blog-intro {
+    max-width: 680px;
+    margin-inline: auto;
+    margin-top: var(--sp-4);
+    margin-bottom: var(--sp-12);
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-8);
+    text-align: left;
+  }
+
+  .blog-card {
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--transition-md), transform var(--transition-md);
+  }
+
+  .blog-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+
+  .blog-card-image-wrap { overflow: hidden; }
+
+  .blog-card-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-lg);
+  }
+
+  .blog-card:hover .blog-card-img { transform: scale(1.04); }
+
+  .blog-card-body {
+    padding: var(--sp-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+  }
+
+  .blog-card-title {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  .blog-card-title a { color: var(--color-text-heading); }
+  .blog-card-title a:hover { color: var(--color-primary); }
+
+  .blog-readmore {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    color: var(--color-primary);
+    transition: gap var(--transition-sm);
+  }
+
+  .blog-readmore:hover { gap: var(--sp-3); }
+
+  @media (max-width: 640px) {
+    .blog-grid { grid-template-columns: 1fr; }
+  }
+</style>

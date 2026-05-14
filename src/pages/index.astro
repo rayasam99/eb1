@@ -1,17 +1,936 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title="EB-1A Green Card Coach | Specialized in EB-1A Green Card"
+  description="Unlock your path to the USA with our expertise in EB-1A Green Card applications. Let us guide you towards Extraordinary Ability and Permanent Residency."
+>
+
+  <!-- ═══════════════════════════════════════════════
+       HERO SECTION
+  ═══════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <h1 class="heading-1 hero-heading">
+          Specialized in<br />EB-1A Green Card
+        </h1>
+        <p class="text-body hero-text">
+          Unlock Your Path to the USA with Our Expertise in EB-1A Green Card
+          Applications. Let Us Guide You Towards Extraordinary Ability and
+          Permanent Residency. Start Your Journey Today!
+        </p>
+        <a href="/contact-us" class="btn btn-primary btn-lg hero-cta">
+          Request A Consultation
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+      <div class="hero-image-wrap">
+        <img
+          src="/images/EB-1A-Hero.webp"
+          alt="EB-1A Green Card Coach specialist"
+          class="hero-image"
+          width="540"
+          height="580"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SERVICES SECTION
+  ═══════════════════════════════════════════════ -->
+  <section class="section bg-light services-section">
+    <div class="container">
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <h3 class="heading-3 service-title">EB-1A Visa (Extraordinary Ability)</h3>
+          <p class="text-body service-desc">
+            Obtain permanent residency in the US based on your exceptional talent
+            or achievements in arts, sciences, business, education, or athletics.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 class="heading-3 service-title">NIW &amp; EB-2 (National Interest Waiver &amp; Employment-Based 2)</h3>
+          <p class="text-body service-desc">
+            Simplified path to permanent residency for skilled professionals and
+            those with advanced degrees, bypassing labor certification.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="heading-3 service-title">O-Visa</h3>
+          <p class="text-body service-desc">
+            Temporary work visa for individuals with extraordinary talent or
+            achievements in fields like science, arts, education, business, or
+            athletics.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       ABOUT OUR COMPANY — text
+  ═══════════════════════════════════════════════ -->
+  <section class="section bg-white">
+    <div class="container">
+      <div class="section-header-centered">
+        <h2 class="heading-2">About Our Company</h2>
+        <hr class="divider divider-center" />
+      </div>
+      <p class="text-body about-intro">
+        EB-1A Green Card Coach specializes in guiding you through the EB-1A
+        immigration process. Our expert team specializes in guiding individuals
+        with extraordinary abilities or achievements to obtain permanent residency
+        in the United States. Let us be your trusted partner on the journey to
+        achieving your immigration goals. With our personalized approach and
+        expertise, we'll help you navigate every step of the way.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       ABOUT — image + features card
+  ═══════════════════════════════════════════════ -->
+  <section class="afc-section">
+    <div class="container">
+    <div class="afc-card">
+
+      <!-- Image inset inside the card -->
+      <div class="afc-image-wrap">
+        <img
+          src="/images/Happy-Student-Img.jpg"
+          alt="Student with headphones"
+          class="afc-image"
+          width="1200"
+          height="500"
+        />
+      </div>
+
+      <!-- Features row — diagonal stripe red -->
+      <div class="afc-features">
+        <div class="afc-features-grid">
+
+          <div class="afc-feature">
+            <div class="afc-icon-circle">
+              <i class="fa-solid fa-table-columns"></i>
+            </div>
+            <h3 class="heading-3 afc-feature-title">Specialized EB-1A Coaches</h3>
+            <p class="afc-feature-desc">
+              Our team of qualified coaches at EB-1A Green Card Coach provides expert
+              guidance, helping clients navigate through the EB-1A immigration process.
+            </p>
+          </div>
+
+          <div class="afc-feature">
+            <div class="afc-icon-circle">
+              <i class="fa-solid fa-people-group"></i>
+            </div>
+            <h3 class="heading-3 afc-feature-title">Personalized Approach</h3>
+            <p class="afc-feature-desc">
+              We understand that every client is unique, and we take the time to
+              understand their circumstances and goals
+            </p>
+          </div>
+
+          <div class="afc-feature">
+            <div class="afc-icon-circle">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <h3 class="heading-3 afc-feature-title">Client Satisfaction</h3>
+            <p class="afc-feature-desc">
+              At EB-1A Coach, client satisfaction is our top priority. We work smart
+              to make our clients happy by doing more than they expect
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       NEED AN EB-1A COACH?
+  ═══════════════════════════════════════════════ -->
+  <section class="section bg-white coach-section">
+    <div class="container coach-inner">
+      <h2 class="heading-2 coach-heading">
+        Need an EB-1A Coach? Our immigration<br />consultants can help
+      </h2>
+      <hr class="divider divider-center" />
+      <p class="text-body coach-text">
+        EB-1A Green Card Coach specializes in U.S. immigration law, offering
+        tailored services to meet your needs. Whether you're seeking guidance on
+        the EB-1A green card process, navigating the complexities of the EB-1A
+        visa application, or needing expert coaching for your EB-1A case, our team
+        is here to help you at every step, with years of experience and a
+        commitment to excellence. We provide comprehensive support to individuals
+        and companies alike, ensuring smooth navigation through the immigration
+        process. Contact us today for personalized assistance with your EB-1A green
+        card, EB-1A visa, or EB-1A coaching needs.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       CTA BANNER
+  ═══════════════════════════════════════════════ -->
+  <section class="cta-banner">
+    <div class="container cta-banner-inner">
+      <div class="cta-banner-text">
+        <p class="cta-eyebrow text-light">Achieve your American dream with EB-1A</p>
+        <h2 class="heading-2 text-light cta-heading">Get Your EB-1A Consultation!</h2>
+      </div>
+      <a href="/contact-us" class="btn btn-primary btn-lg cta-banner-btn">
+        Request A Consultation
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       BEHIND OUR WORK
+  ═══════════════════════════════════════════════ -->
+  <section class="section bg-white work-section">
+    <div class="container work-inner">
+      <div class="work-image-wrap">
+        <img
+          src="/images/EB-1A-Behind-Our-Work.jpg"
+          alt="Immigration professionals at work"
+          class="work-image"
+          width="560"
+          height="420"
+        />
+      </div>
+      <div class="work-content">
+        <h2 class="heading-2">Behind Our Work</h2>
+        <hr class="divider" />
+        <p class="text-body">
+          The legal professionals at EB-1A Green Card Coach boast decades of
+          collective experience in U.S. immigration law. Our adept team facilitates
+          cross-border talent acquisition for companies, facilitates employment
+          opportunities for foreign workers in the U.S., and aids immigrants in
+          reuniting with their families within the U.S.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       CLIENT REVIEWS — carousel
+  ═══════════════════════════════════════════════ -->
+  <section class="section bg-white reviews-section">
+    <div class="container reviews-inner">
+      <div class="section-header-centered">
+        <h2 class="heading-2">Our Client's Reviews</h2>
+        <hr class="divider divider-center" />
+      </div>
+
+      <!-- Carousel -->
+      <div class="testimonial-carousel" id="testimonial-carousel">
+
+        <!-- Slides -->
+        <div class="testimonial-track" id="testimonial-track">
+
+          <div class="testimonial-slide">
+            <blockquote class="testimonial-text">
+              Thank you for your assistance in securing our green card. Your prompt
+              responses to our inquiries were greatly appreciated throughout the process.
+            </blockquote>
+            <cite class="testimonial-author">William</cite>
+          </div>
+
+          <div class="testimonial-slide">
+            <blockquote class="testimonial-text">
+              The team assigned to our case was amazing. They were approachable,
+              addressing all our queries with clarity, while maintaining a high level
+              of professionalism. We are delighted with the successful outcome of our
+              visa application.
+            </blockquote>
+            <cite class="testimonial-author">James</cite>
+          </div>
+
+          <div class="testimonial-slide">
+            <blockquote class="testimonial-text">
+              We are thankful for the support and responsiveness of the team. Working
+              with them has been a pleasure, and we have received excellent guidance
+              when needed.
+            </blockquote>
+            <cite class="testimonial-author">Thomas</cite>
+          </div>
+
+        </div>
+
+        <!-- Dots -->
+        <div class="testimonial-dots" id="testimonial-dots">
+          <button class="dot dot--active" data-index="0" aria-label="Slide 1"></button>
+          <button class="dot" data-index="1" aria-label="Slide 2"></button>
+          <button class="dot" data-index="2" aria-label="Slide 3"></button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       BLOG SECTION  (dark navy background)
+  ═══════════════════════════════════════════════ -->
+  <section class="section bg-navy blog-section">
+    <div class="container">
+      <div class="blog-header">
+        <h2 class="heading-2 text-light">Our Blog</h2>
+        <a href="/blog" class="btn btn-outline-white btn-sm">View More</a>
+      </div>
+
+      <div class="blog-grid">
+
+        <article class="blog-card">
+          <div class="blog-card-image-wrap">
+            <img
+              src="/images/EB-1A-Blog-1.jpg"
+              alt="How to Build a Strong EBIA Petition"
+              class="blog-card-image"
+              width="560"
+              height="300"
+            />
+          </div>
+          <div class="blog-card-body">
+            <h3 class="heading-3 blog-card-title">
+              How to Build a Strong EBIA Petition: Tips and Strategies
+            </h3>
+            <a href="/blog/ebia-petition-tips" class="blog-readmore">
+              Readmore
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <div class="blog-card-image-wrap">
+            <img
+              src="/images/EB-1A-Blog-2.jpg"
+              alt="EBIA Visa Guide Criteria"
+              class="blog-card-image"
+              width="560"
+              height="300"
+            />
+          </div>
+          <div class="blog-card-body">
+            <h3 class="heading-3 blog-card-title">
+              EBIA Visa Guide Criteria: USCIS Classification Guidance for EBIA
+            </h3>
+            <a href="/blog/ebia-visa-guide" class="blog-readmore">
+              Readmore
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       DISCLAIMER
+  ═══════════════════════════════════════════════ -->
+  <div class="disclaimer-bar">
+    <div class="container">
+      <p class="text-xs disclaimer-text">
+        <strong>Disclaimer:</strong> The services provided by EB-1A Green Card Coach are for informational purposes only and do not constitute legal advice or an attorney-client relationship. Please consult with a licensed attorney for legal advice regarding your specific immigration situation. EB-1A Green Card Coach is not a law firm and does not provide legal services. It is assumed that you are fully compliant with all applicable laws when engaging in our services.
+      </p>
+    </div>
+  </div>
+
+</Layout>
+
+<style>
+  /* ══ HERO ═══════════════════════════════════════════════════ */
+  .hero {
+    position: relative;
+    background-color: var(--color-navy);
+    background-image:
+      /* red accent glow bottom-left */
+      radial-gradient(ellipse 55% 60% at 0% 100%, rgba(204,20,39,0.18) 0%, transparent 70%),
+      /* blue accent glow top-right */
+      radial-gradient(ellipse 50% 50% at 100% 0%, rgba(30,80,180,0.22) 0%, transparent 65%),
+      /* diagonal vector lines going one way */
+      repeating-linear-gradient(
+        60deg,
+        transparent 0px,
+        transparent 58px,
+        rgba(255,255,255,0.055) 58px,
+        rgba(255,255,255,0.055) 59px
+      ),
+      /* diagonal vector lines crossing */
+      repeating-linear-gradient(
+        -60deg,
+        transparent 0px,
+        transparent 58px,
+        rgba(255,255,255,0.055) 58px,
+        rgba(255,255,255,0.055) 59px
+      ),
+      /* horizontal lines */
+      repeating-linear-gradient(
+        0deg,
+        transparent 0px,
+        transparent 58px,
+        rgba(255,255,255,0.03) 58px,
+        rgba(255,255,255,0.03) 59px
+      );
+    padding-block: var(--sp-20) var(--sp-16);
+    overflow: hidden;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: var(--sp-12);
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-6);
+  }
+
+  .hero-heading {
+    color: var(--color-white);
+  }
+
+  .hero-text {
+    max-width: 480px;
+    color: rgba(255,255,255,0.78);
+  }
+
+  .hero-cta {
+    margin-top: var(--sp-2);
+  }
+
+  .hero-image-wrap {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.12), var(--shadow-xl);
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ══ SERVICES ════════════════════════════════════════════════ */
+  .services-section {
+    padding-block: var(--sp-16);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-6);
+  }
+
+  .service-card {
+    background-color: var(--color-white);
+    border-radius: var(--radius-md);
+    padding: var(--sp-8) var(--sp-6);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--transition-md), transform var(--transition-md);
+  }
+
+  .service-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+  }
+
+  .service-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-navy);
+    color: var(--color-white);
+    margin-bottom: var(--sp-5);
+  }
+
+  .service-title {
+    font-size: 18px;
+    margin-bottom: var(--sp-3);
+  }
+
+  .service-desc {
+    font-size: var(--fs-sm);
+    color: var(--color-text-body);
+    line-height: var(--lh-body);
+  }
+
+  /* ══ ABOUT ═══════════════════════════════════════════════════ */
+  .section-header-centered {
+    text-align: center;
+    margin-bottom: var(--sp-8);
+  }
+
+  .about-intro {
+    max-width: 760px;
+    margin-inline: auto;
+    text-align: center;
+    margin-bottom: var(--sp-10);
+  }
+
+  /* ══ ABOUT + FEATURES COMBINED CARD ════════════════════════ */
+
+  .afc-section {
+    background-color: var(--color-white);
+    padding-bottom: var(--sp-20);
+  }
+
+  .afc-card {
+    width: 100%;
+    border: 4px solid var(--color-navy);
+    border-radius: 18px;
+    background-color: var(--color-primary);
+    overflow: hidden;
+  }
+
+  /* Image — inset with padding on all sides */
+  .afc-image-wrap {
+    padding: 14px 14px 0 14px;
+  }
+
+  .afc-image {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    border-radius: 10px 10px 0 0;
+  }
+
+  /* Features row — diagonal stripe over red */
+  .afc-features {
+    background-color: var(--color-primary);
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 10px,
+      rgba(0, 0, 0, 0.13) 10px,
+      rgba(0, 0, 0, 0.13) 11px
+    );
+    padding: 44px 48px 44px 48px;
+  }
+
+  .afc-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-10);
+  }
+
+  .afc-feature {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+  }
+
+  /* Icon circle — dark navy, circular */
+  .afc-icon-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-navy);
+    color: var(--color-white);
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  /* Headings white, body lighter white */
+  .afc-feature-title {
+    font-size: 20px;
+    color: var(--color-white) !important;
+    margin-top: var(--sp-1);
+  }
+
+  .afc-feature-desc {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    line-height: var(--lh-body);
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  /* ══ COACH SECTION ════════════════════════════════════════════ */
+  .coach-inner {
+    text-align: center;
+  }
+
+  .coach-heading {
+    margin-bottom: var(--sp-2);
+  }
+
+  .coach-text {
+    max-width: 820px;
+    margin-inline: auto;
+    margin-top: var(--sp-6);
+  }
+
+  /* ══ CTA BANNER ══════════════════════════════════════════════ */
+  .cta-banner {
+    background-color: var(--color-navy);
+    padding-block: var(--sp-12);
+  }
+
+  .cta-banner-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-8);
+    flex-wrap: wrap;
+  }
+
+  .cta-eyebrow {
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-medium);
+    letter-spacing: var(--ls-wide);
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: var(--sp-2);
+  }
+
+  .cta-heading {
+    font-size: clamp(24px, 3vw, 38px);
+  }
+
+  .cta-banner-btn {
+    flex-shrink: 0;
+  }
+
+  /* ══ BEHIND OUR WORK ══════════════════════════════════════════ */
+  .work-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-16);
+    align-items: center;
+  }
+
+  .work-image-wrap {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+
+  .work-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  .work-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-2);
+  }
+
+  .work-content p {
+    margin-top: var(--sp-4);
+    max-width: 480px;
+  }
+
+  /* ══ REVIEWS CAROUSEL ════════════════════════════════════════ */
+  .reviews-inner {
+    text-align: center;
+  }
+
+  .testimonial-carousel {
+    max-width: 760px;
+    margin-inline: auto;
+    margin-top: var(--sp-10);
+    overflow: hidden;
+  }
+
+  .testimonial-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .testimonial-slide {
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-6);
+    padding-inline: var(--sp-4);
+  }
+
+  .testimonial-text {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.85;
+    color: var(--color-text-body);
+    text-align: center;
+  }
+
+  .testimonial-author {
+    font-family: var(--font-body);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-semibold);
+    color: var(--color-text-heading);
+    font-style: normal;
+    letter-spacing: 0.02em;
+  }
+
+  /* Dots */
+  .testimonial-dots {
+    display: flex;
+    justify-content: center;
+    gap: var(--sp-3);
+    margin-top: var(--sp-8);
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-border-dark);
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--transition-sm), transform var(--transition-sm);
+    padding: 0;
+  }
+
+  .dot--active {
+    background-color: var(--color-primary);
+    transform: scale(1.25);
+  }
+
+  /* ══ BLOG ════════════════════════════════════════════════════ */
+  .blog-section {
+    padding-block: var(--sp-16);
+  }
+
+  .blog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--sp-10);
+    flex-wrap: wrap;
+    gap: var(--sp-4);
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-8);
+  }
+
+  .blog-card {
+    background-color: var(--color-white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: transform var(--transition-md), box-shadow var(--transition-md);
+  }
+
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .blog-card-image-wrap {
+    overflow: hidden;
+    max-height: 220px;
+  }
+
+  .blog-card-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    transition: transform var(--transition-lg);
+  }
+
+  .blog-card:hover .blog-card-image {
+    transform: scale(1.04);
+  }
+
+  .blog-card-body {
+    padding: var(--sp-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+  }
+
+  .blog-card-title {
+    font-size: 18px;
+    color: var(--color-text-heading);
+    line-height: 1.4;
+  }
+
+  .blog-readmore {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    color: var(--color-primary);
+    transition: gap var(--transition-sm), color var(--transition-sm);
+  }
+
+  .blog-readmore:hover {
+    gap: var(--sp-3);
+    color: var(--color-primary-dark);
+  }
+
+  /* ══ DISCLAIMER ══════════════════════════════════════════════ */
+  .disclaimer-bar {
+    background-color: var(--color-off-white);
+    border-top: 1px solid var(--color-border);
+    padding-block: var(--sp-5);
+  }
+
+  .disclaimer-text {
+    color: var(--color-text-muted);
+    line-height: 1.65;
+    text-align: center;
+    max-width: 900px;
+    margin-inline: auto;
+  }
+
+  /* ══ RESPONSIVE ══════════════════════════════════════════════ */
+  @media (max-width: 1024px) {
+    .hero-inner {
+      gap: var(--sp-10);
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--sp-5);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-inner {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .hero-content {
+      align-items: center;
+      order: 1;
+    }
+
+    .hero-image-wrap {
+      order: 0;
+      max-height: 320px;
+    }
+
+    .hero-text {
+      max-width: 100%;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .afc-features-grid {
+      grid-template-columns: 1fr;
+      gap: var(--sp-8);
+    }
+
+    .afc-section {
+      padding-inline: 16px;
+    }
+
+    .afc-features {
+      padding: 32px 24px;
+    }
+
+    .afc-image {
+      height: 260px;
+    }
+
+    .work-inner {
+      grid-template-columns: 1fr;
+      gap: var(--sp-8);
+    }
+
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-banner-inner {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .cta-banner-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero {
+      padding-block: var(--sp-12) var(--sp-10);
+    }
+  }
+</style>
+
+<script>
+  const track = document.getElementById('testimonial-track') as HTMLElement;
+  const dots  = document.querySelectorAll<HTMLButtonElement>('.dot');
+  const total = dots.length;
+  let current = 0;
+  let timer: ReturnType<typeof setInterval>;
+
+  function goTo(index: number) {
+    current = (index + total) % total;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dots.forEach((d, i) => d.classList.toggle('dot--active', i === current));
+  }
+
+  function startAuto() {
+    timer = setInterval(() => goTo(current + 1), 5000);
+  }
+
+  function resetAuto() {
+    clearInterval(timer);
+    startAuto();
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      goTo(Number(dot.dataset.index));
+      resetAuto();
+    });
+  });
+
+  startAuto();
+</script>
