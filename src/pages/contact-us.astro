@@ -13,7 +13,16 @@ import PageHero from '../components/PageHero.astro';
 
       <!-- Left: Form -->
       <div class="contact-form-wrap">
-        <form class="contact-form" name="contact" method="POST">
+        <div id="form-success" class="form-alert form-alert--success" hidden>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Message sent! We'll get back to you shortly.
+        </div>
+        <div id="form-error" class="form-alert form-alert--error" hidden>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Something went wrong. Please try again or email us directly.
+        </div>
+
+        <form id="contact-form" class="contact-form" novalidate>
           <div class="form-row">
             <div class="form-group">
               <label class="form-label" for="first-name">First Name</label>
@@ -34,9 +43,12 @@ import PageHero from '../components/PageHero.astro';
           </div>
           <div class="form-group">
             <label class="form-label" for="message">Message</label>
-            <textarea class="form-input form-textarea" id="message" name="message" placeholder="Message" rows="6"></textarea>
+            <textarea class="form-input form-textarea" id="message" name="message" placeholder="Message" rows="6" required></textarea>
           </div>
-          <button type="submit" class="btn btn-primary form-submit">Submit</button>
+          <button type="submit" id="submit-btn" class="btn btn-primary form-submit">
+            <span id="submit-label">Submit</span>
+            <span id="submit-spinner" class="spinner" hidden></span>
+          </button>
         </form>
       </div>
 
@@ -176,8 +188,83 @@ import PageHero from '../components/PageHero.astro';
 
   .contact-detail-item a:hover { color: var(--color-primary); }
 
+  /* ── Alerts ── */
+  .form-alert {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    padding: var(--sp-4) var(--sp-5);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-body);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-medium);
+    margin-bottom: var(--sp-5);
+  }
+  .form-alert--success { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
+  .form-alert--error   { background: #fff1f2; color: #be123c; border: 1px solid #fecdd3; }
+
+  /* ── Spinner ── */
+  .spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
   @media (max-width: 768px) {
     .contact-grid { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
   }
 </style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const submitLabel = document.getElementById('submit-label') as HTMLSpanElement;
+  const submitSpinner = document.getElementById('submit-spinner') as HTMLSpanElement;
+  const successBox = document.getElementById('form-success') as HTMLDivElement;
+  const errorBox = document.getElementById('form-error') as HTMLDivElement;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    successBox.hidden = true;
+    errorBox.hidden = true;
+
+    submitBtn.disabled = true;
+    submitLabel.hidden = true;
+    submitSpinner.hidden = false;
+
+    const data = {
+      firstName: (form.querySelector('#first-name') as HTMLInputElement).value.trim(),
+      lastName:  (form.querySelector('#last-name')  as HTMLInputElement).value.trim(),
+      email:     (form.querySelector('#email')      as HTMLInputElement).value.trim(),
+      phone:     (form.querySelector('#phone')      as HTMLInputElement).value.trim(),
+      message:   (form.querySelector('#message')    as HTMLTextAreaElement).value.trim(),
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        successBox.hidden = false;
+        form.reset();
+      } else {
+        errorBox.hidden = false;
+      }
+    } catch {
+      errorBox.hidden = false;
+    } finally {
+      submitBtn.disabled = false;
+      submitLabel.hidden = false;
+      submitSpinner.hidden = true;
+    }
+  });
+</script>
